@@ -1,0 +1,12 @@
+{
+  "scope": "Five production source files read at task start and rehashed after implementation; no production module import or mutation performed",
+  "all_hashes_equal": true,
+  "files": [
+    {"service": "claude/gitea-issue-agent", "file": "agent.py", "sha256": "CA89897D54D3FDD708228963E24F749D55BD2D986D766C39E467D344D3BCF8DE"},
+    {"service": "codex/github-issue-agent", "file": "coordination.py", "sha256": "A184A83C38F7DE01D943195A63FC8107CD17EAE4A530FD2BFC5E6C31139307A1"},
+    {"service": "codex/github-issue-agent", "file": "receiver.py", "sha256": "5B3709CCF494193303DE0FC262B4986DE578091FB796EDAE498A109C95904069"},
+    {"service": "codex/github-issue-agent", "file": "job_context.py", "sha256": "7EA427A5BF816A9D5FD06276A8C7E70A1C0FAB8FC9BA7895DD35A77CF74356CB"},
+    {"service": "codex/github-issue-agent", "file": "control.py", "sha256": "AEEF192096104CFC56FC2AF7253D3FF5E0E49E71D0586AEE41B4479F18B672C8"}
+  ],
+  "limits": ["Does not freeze operational databases or prevent other sessions from working", "Hash check covers these files, not every production asset"]
+}

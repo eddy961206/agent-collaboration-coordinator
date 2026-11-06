@@ -1,0 +1,205 @@
+{
+  "scope": "Real Claude/Codex/RT with fake provider; distinct coordinator and two worker processes on one isolated host",
+  "checks": [
+    {
+      "name": "external_network_blocked",
+      "passed": true
+    },
+    {
+      "name": "four_real_native_or_rt_jobs_started",
+      "passed": true
+    },
+    {
+      "name": "mid_request_changes_accepted",
+      "passed": true
+    },
+    {
+      "name": "workers_continue_after_coordinator_sigkill",
+      "passed": true
+    },
+    {
+      "name": "same_run_recovered_node-a-claude",
+      "passed": true
+    },
+    {
+      "name": "same_cli_process_and_session_recovered_node-a-claude",
+      "passed": true
+    },
+    {
+      "name": "same_run_recovered_node-b-codex",
+      "passed": true
+    },
+    {
+      "name": "same_cli_process_and_session_recovered_node-b-codex",
+      "passed": true
+    },
+    {
+      "name": "same_run_recovered_node-a-rt",
+      "passed": true
+    },
+    {
+      "name": "same_rt_room_recovered_node-a-rt",
+      "passed": true
+    },
+    {
+      "name": "same_run_recovered_node-b-rt",
+      "passed": true
+    },
+    {
+      "name": "same_rt_room_recovered_node-b-rt",
+      "passed": true
+    },
+    {
+      "name": "new_coordinator_process_is_distinct",
+      "passed": true
+    },
+    {
+      "name": "stopped_node-a-claude",
+      "passed": true
+    },
+    {
+      "name": "resumed_new_run_with_latest_request_node-a-claude",
+      "passed": true
+    },
+    {
+      "name": "late_stop_rejected_node-a-claude",
+      "passed": true
+    },
+    {
+      "name": "old_worker_cannot_publish_node-a-claude",
+      "passed": true
+    },
+    {
+      "name": "stopped_node-b-codex",
+      "passed": true
+    },
+    {
+      "name": "resumed_new_run_with_latest_request_node-b-codex",
+      "passed": true
+    },
+    {
+      "name": "late_stop_rejected_node-b-codex",
+      "passed": true
+    },
+    {
+      "name": "old_worker_cannot_publish_node-b-codex",
+      "passed": true
+    },
+    {
+      "name": "stopped_node-a-rt",
+      "passed": true
+    },
+    {
+      "name": "resumed_new_run_with_latest_request_node-a-rt",
+      "passed": true
+    },
+    {
+      "name": "late_stop_rejected_node-a-rt",
+      "passed": true
+    },
+    {
+      "name": "old_worker_cannot_publish_node-a-rt",
+      "passed": true
+    },
+    {
+      "name": "stopped_node-b-rt",
+      "passed": true
+    },
+    {
+      "name": "resumed_new_run_with_latest_request_node-b-rt",
+      "passed": true
+    },
+    {
+      "name": "late_stop_rejected_node-b-rt",
+      "passed": true
+    },
+    {
+      "name": "old_worker_cannot_publish_node-b-rt",
+      "passed": true
+    },
+    {
+      "name": "native_or_rt_finished_node-a-claude",
+      "passed": true
+    },
+    {
+      "name": "native_or_rt_finished_node-b-codex",
+      "passed": true
+    },
+    {
+      "name": "native_or_rt_finished_node-a-rt",
+      "passed": true
+    },
+    {
+      "name": "native_or_rt_finished_node-b-rt",
+      "passed": true
+    },
+    {
+      "name": "completed_while_coordinator_was_absent",
+      "passed": true
+    },
+    {
+      "name": "second_restart_is_new_process",
+      "passed": true
+    },
+    {
+      "name": "native_output_recovered_for_review_node-a-claude",
+      "passed": true
+    },
+    {
+      "name": "recovered_task_can_publish_current_revision_node-a-claude",
+      "passed": true
+    },
+    {
+      "name": "native_output_recovered_for_review_node-b-codex",
+      "passed": true
+    },
+    {
+      "name": "recovered_task_can_publish_current_revision_node-b-codex",
+      "passed": true
+    },
+    {
+      "name": "native_output_recovered_for_review_node-a-rt",
+      "passed": true
+    },
+    {
+      "name": "recovered_task_can_publish_current_revision_node-a-rt",
+      "passed": true
+    },
+    {
+      "name": "native_output_recovered_for_review_node-b-rt",
+      "passed": true
+    },
+    {
+      "name": "recovered_task_can_publish_current_revision_node-b-rt",
+      "passed": true
+    },
+    {
+      "name": "latest_resumed_requests_reached_fake_provider",
+      "passed": true
+    }
+  ],
+  "passed": 44,
+  "total": 44,
+  "model_calls": 0,
+  "fake_requests": 12,
+  "artifacts": {
+    "claude": {
+      "sha256": "520bc6c1f40af466bd03a278b5ae1af1a2938bc7de5b9e5cb15526da20d71cfe",
+      "version": "2.1.306 (Claude Code)"
+    },
+    "codex": {
+      "sha256": "399ff69c431c066e40de318fba45c2b07f45a76b19939d247ee4828fc70c4215",
+      "version": "codex-cli 0.163.0"
+    },
+    "roundtable": {
+      "sha256": "70fe534716722662e8f6765c0e7c8ab7287cadeb36ce6fe6a2e606a3c8da1f7c",
+      "source_commit": "383e02d6dc2feed92865baeb0443c9bc37deea63"
+    }
+  },
+  "verified_at_utc": "2026-11-06T14:52:39.377327+00:00",
+  "network": "Docker --network none, only loopback provider",
+  "limits": [
+    "No real model reasoning",
+    "Physical PC test is separate"
+  ]
+}

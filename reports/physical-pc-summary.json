@@ -1,0 +1,118 @@
+{
+  "scope": "Two physical computers; fixed Python workers; SSH loopback tunnel",
+  "recorded_at_utc": "2026-11-06T14:35:53.466785+00:00",
+  "model_calls": 0,
+  "checks": [
+    {
+      "name": "physical_operating_systems",
+      "passed": true,
+      "evidence": {
+        "node_a": {
+          "platform": "Windows",
+          "python": "3.12.6"
+        },
+        "node_b": {
+          "platform": "Darwin",
+          "python": "3.14.3"
+        }
+      }
+    },
+    {
+      "name": "parallel_workers_on_two_hosts",
+      "passed": true,
+      "evidence": [
+        {
+          "children": [
+            {
+              "pid": 35116,
+              "revision": 1,
+              "status": "running"
+            }
+          ],
+          "stopped": false
+        },
+        {
+          "children": [
+            {
+              "pid": 94348,
+              "revision": 1,
+              "status": "running"
+            }
+          ],
+          "stopped": false
+        }
+      ]
+    },
+    {
+      "name": "start_retransmission_does_not_spawn_again",
+      "passed": true,
+      "evidence": "same handle and child process identity"
+    },
+    {
+      "name": "request_change_on_each_physical_host",
+      "passed": true,
+      "evidence": [
+        {
+          "acknowledgement": "deterministic_fixture",
+          "delivered": true,
+          "model_calls": 0,
+          "revision": 2
+        },
+        {
+          "acknowledgement": "deterministic_fixture",
+          "delivered": true,
+          "model_calls": 0,
+          "revision": 2
+        }
+      ]
+    },
+    {
+      "name": "new_coordinator_clients_recover_existing_workers",
+      "passed": true,
+      "evidence": "persistent handle, same child process identity"
+    },
+    {
+      "name": "tunnel_loss_does_not_stop_local_work",
+      "passed": true,
+      "evidence": "remote unavailable; local worker remains active"
+    },
+    {
+      "name": "tunnel_reconnect_reuses_remote_worker",
+      "passed": true,
+      "evidence": "same remote child process identity"
+    },
+    {
+      "name": "targeted_stop_on_both_hosts",
+      "passed": true,
+      "evidence": "each host confirms its own child stopped"
+    },
+    {
+      "name": "resume_uses_latest_request_on_both_hosts",
+      "passed": true,
+      "evidence": "new run identities; latest request revision 3"
+    },
+    {
+      "name": "late_stop_does_not_touch_resumed_workers",
+      "passed": true,
+      "evidence": "old run stops are idempotent"
+    },
+    {
+      "name": "final_children_stopped",
+      "passed": true,
+      "evidence": "both hosts confirmed final stops"
+    },
+    {
+      "name": "remote_fixture_cleanup",
+      "passed": true,
+      "evidence": "owned remote worker stopped and dedicated directory removed"
+    }
+  ],
+  "passed": 12,
+  "total": 12,
+  "limits": [
+    "fake workers only on physical hosts",
+    "client/tunnel restart is not coordinator process crash",
+    "native CLI and RT behavior tested in separate isolated lab",
+    "not a production rollout"
+  ]
+}

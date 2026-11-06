@@ -1,0 +1,11 @@
+{
+  "tests": 117,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": true,
+  "platform": "Windows",
+  "python": "3.12.6",
+  "scope": "SQLite, threads, processes, local fixture HTTP; no production services or model calls",
+  "model_calls": 0
+}

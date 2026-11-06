@@ -1,0 +1,39 @@
+{
+  "scope": "Real native CLI start, transport update, stop, same-session resume and completion against local fake providers",
+  "verified_at_utc": "2026-11-06T14:17:45.527518+00:00",
+  "network": "Docker --network none, only loopback provider",
+  "model_calls": 0,
+  "artifacts": {
+    "claude": {
+      "sha256": "520bc6c1f40af466bd03a278b5ae1af1a2938bc7de5b9e5cb15526da20d71cfe",
+      "version": "2.1.306 (Claude Code)"
+    },
+    "codex": {
+      "sha256": "399ff69c431c066e40de318fba45c2b07f45a76b19939d247ee4828fc70c4215",
+      "version": "codex-cli 0.163.0"
+    }
+  },
+  "checks": [
+    {
+      "engine": "claude",
+      "passed": true,
+      "same_owned_native_session_resumed": true,
+      "change_delivery_state": "queued",
+      "fake_provider_requests": 2,
+      "model_calls": 0
+    },
+    {
+      "engine": "codex",
+      "passed": true,
+      "same_owned_native_session_resumed": true,
+      "change_delivery_state": "accepted",
+      "fake_provider_requests": 2,
+      "model_calls": 0
+    }
+  ],
+  "limits": [
+    "Not model reasoning quality",
+    "No existing Desktop session adoption",
+    "No real provider credential used"
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "scope": "Real isolated Gitea and pinned RT; fake people and fake model CLI",
+  "passed": 31,
+  "total": 31,
+  "model_calls": 0,
+  "gitea_version": "28.1.0",
+  "rt_binary_sha256": "70fe534716722662e8f6765c0e7c8ab7287cadeb36ce6fe6a2e606a3c8da1f7c",
+  "limits": [
+    "single Docker host",
+    "fake model does not understand requirements",
+    "existing apps/services untouched",
+    "production auth and deployment not enabled"
+  ],
+  "lab_id": "a770bf0666",
+  "python_image": "sha256:2eed62cfaeefc75249d128e7a6bc39b63a6803e159a43b9c4002fc25f9406374",
+  "gitea_image": "sha256:f505a0d3a41323b786e05942fc7a4075e07ae7c169fd9485649aa55ee543a21a",
+  "rt_source_commit": "383e02d6dc2feed92865baeb0443c9bc37deea63",
+  "checks": [
+    {
+      "name": "external_network_blocked",
+      "passed": true
+    },
+    {
+      "name": "no_model_credentials",
+      "passed": true
+    },
+    {
+      "name": "real_rt_only_fake_cli_enabled",
+      "passed": true
+    },
+    {
+      "name": "three_people_have_distinct_gitea_accounts",
+      "passed": true
+    },
+    {
+      "name": "four_parallel_runs_with_and_without_rt",
+      "passed": true
+    },
+    {
+      "name": "real_rt_two_seats_bob",
+      "passed": true
+    },
+    {
+      "name": "real_rt_two_seats_alice",
+      "passed": true
+    },
+    {
+      "name": "viewer_cannot_mutate",
+      "passed": true
+    },
+    {
+      "name": "same_task_second_run_rejected",
+      "passed": true
+    },
+    {
+      "name": "gitea_webhook_changes_direct_worker",
+      "passed": true
+    },
+    {
+      "name": "delivery_alone_does_not_authorize_publish",
+      "passed": true
+    },
+    {
+      "name": "one_real_gitea_result_after_retry",
+      "passed": true
+    },
+    {
+      "name": "edit_and_late_delivery_keep_latest_revision",
+      "passed": true
+    },
+    {
+      "name": "rt_change_reaches_two_fake_cli_seats",
+      "passed": true
+    },
+    {
+      "name": "stop_confirmed_direct",
+      "passed": true
+    },
+    {
+      "name": "new_run_latest_request_direct",
+      "passed": true
+    },
+    {
+      "name": "late_stop_cannot_stop_resumed_direct",
+      "passed": true
+    },
+    {
+      "name": "old_worker_cannot_publish_direct",
+      "passed": true
+    },
+    {
+      "name": "stop_confirmed_rt",
+      "passed": true
+    },
+    {
+      "name": "rt_stopped_cli_processes_are_gone",
+      "passed": true
+    },
+    {
+      "name": "new_run_latest_request_rt",
+      "passed": true
+    },
+    {
+      "name": "late_stop_cannot_stop_resumed_rt",
+      "passed": true
+    },
+    {
+      "name": "old_worker_cannot_publish_rt",
+      "passed": true
+    },
+    {
+      "name": "unrelated_runs_continue_during_stop",
+      "passed": true
+    },
+    {
+      "name": "conflicting_people_resolve_with_decision_owner",
+      "passed": true
+    },
+    {
+      "name": "lost_receipt_is_not_republished",
+      "passed": true
+    },
+    {
+      "name": "reconcile_against_actual_gitea_comment",
+      "passed": true
+    },
+    {
+      "name": "single_status_comment_and_no_self_wakeup",
+      "passed": true
+    },
+    {
+      "name": "event_driven_status_for_all_tasks",
+      "passed": true
+    },
+    {
+      "name": "normal_finish_preserves_delivery_scope",
+      "passed": true
+    },
+    {
+      "name": "real_rt_normal_finish",
+      "passed": true
+    }
+  ]
+}

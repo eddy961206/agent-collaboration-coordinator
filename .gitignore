@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.runtime/
+lab-output/
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-*
+*.key
+*.pem
+config.local.json

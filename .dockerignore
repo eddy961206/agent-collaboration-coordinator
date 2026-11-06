@@ -1,0 +1,10 @@
+.git
+.runtime
+__pycache__
+**/__pycache__
+.env*
+*.sqlite*
+*.key
+*.pem
+config.local.json
+lab-output
