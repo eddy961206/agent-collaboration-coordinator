@@ -61,6 +61,9 @@ class DirectTests(unittest.TestCase):
     def test_credential_environment_is_not_inherited(self):
         original = __import__("subprocess").Popen
         captured = []
+        sandbox_alias = Path(self.temp.name) / "alias" / ".."
+        sandbox_alias.parent.mkdir()
+        self.adapter = DirectAdapter(sandbox_alias)
 
         def record(*args, **kwargs):
             captured.append(kwargs["env"])
@@ -69,9 +72,14 @@ class DirectTests(unittest.TestCase):
         with patch.dict(os.environ, {"ANTHROPIC_API_KEY": "fake-unwanted", "OPENAI_API_KEY": "fake-unwanted",
                                      "CLAUDE_CONFIG_DIR": "unwanted", "HTTP_PROXY": "http://unwanted"}):
             with patch("coordinator.adapters.subprocess.Popen", side_effect=record):
-                self.adapter.start(run())
+                handle = self.adapter.start(run())
         self.assertFalse({"ANTHROPIC_API_KEY", "OPENAI_API_KEY", "CLAUDE_CONFIG_DIR", "HTTP_PROXY"} & captured[0].keys())
-        self.assertTrue(Path(captured[0]["HOME"]).is_relative_to(Path(self.temp.name)))
+        home = Path(captured[0]["HOME"]).resolve()
+        self.assertEqual(home.parent, sandbox_alias.resolve())
+        self.assertEqual(home, Path(handle["workspace"]).resolve())
+        self.assertEqual(Path(captured[0]["USERPROFILE"]).resolve(), home)
+        for key in ("TMP", "TEMP", "TMPDIR"):
+            self.assertEqual(Path(captured[0][key]).resolve(), home / "tmp")
 
     def test_handle_cannot_control_another_process(self):
         handle = self.adapter.start(run())
